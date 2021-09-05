@@ -22,7 +22,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Autowired
     CustomUserDetailService customUserDetailService;
 
-    ////?!!!!!@????????????????!!!!!!!!!!!!!!!))))))))____________!!!!!!!!!!!!!!! PART14
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/", "/shop/**", "/register").permitAll()
