@@ -74,31 +74,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 "/productImages/**","/css/**", "/js/**");
     }
 
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/resources/**", "/static/**", "/images/**",
-//                "/productimages/**", "/css/**", "/js/**");
-//    }
 
-    //!!!!!!!!!!!!!!!!!!//////////////-__________________________________________
-
-
-//    @Bean
-//    public SessionLocaleResolver localResolver(){
-//        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-//        localeResolver.setDefaultLocale(Locale.US);
-//        return localeResolver;
-//    }
-
-//    @Bean
-//    public FilterRegistrationBean encodingFilterRegistrationBean() {
-//        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-//        registrationBean.setFilter(new CharacterEncodingFilter());
-//        Map<String, String> params = new HashMap<>();
-//        params.put("encoding", "UTF-8");
-//        params.put("forceEncoding", "true");
-//        registrationBean.setInitParameters(params);
-//        registrationBean.addUrlPatterns("/");
-//        return registrationBean;
-//    }
 }
