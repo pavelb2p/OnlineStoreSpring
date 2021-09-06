@@ -1,6 +1,5 @@
 package com.example.OnlineStoreSpring.service;
 
-import com.example.OnlineStoreSpring.model.Category;
 import com.example.OnlineStoreSpring.model.Product;
 import com.example.OnlineStoreSpring.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

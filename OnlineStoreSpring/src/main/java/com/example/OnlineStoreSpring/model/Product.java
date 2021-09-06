@@ -1,7 +1,6 @@
 package com.example.OnlineStoreSpring.model;
 
 import lombok.Data;
-
 import javax.persistence.*;
 
 

@@ -81,8 +81,7 @@
                             <h4> USD
                                 <span th:text="${product.price}"></span></h4>
                             <p th:text="${product.description}"></p>
-                            <a href="#" th:href="@{/shop/viewproduct/{id}(id=${product.id})}" class="btn btn-primary" th:text="#{shop.viewproduct.viewproduct}">View
-                                Product</a>
+                            <a href="#" th:href="@{/shop/viewproduct/{id}(id=${product.id})}" class="btn btn-primary" th:text="#{shop.viewproduct.viewproduct}"></a>
                         </div>
                     </div>
                 </div>

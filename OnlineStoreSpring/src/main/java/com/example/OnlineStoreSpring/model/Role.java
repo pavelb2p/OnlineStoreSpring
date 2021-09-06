@@ -1,7 +1,6 @@
 package com.example.OnlineStoreSpring.model;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
@@ -13,7 +12,7 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private int id;
 
     @Column(nullable = false, unique = true)
     @NotEmpty

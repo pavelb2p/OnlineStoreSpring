@@ -1,6 +1,5 @@
 package com.example.OnlineStoreSpring.model;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
@@ -13,11 +12,9 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private int id;
 
     @NotEmpty
     @Column(nullable = false)

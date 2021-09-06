@@ -20,14 +20,11 @@ import java.util.Optional;
 @Controller
 public class AdminController {
 
-    public static  String uploadDir = System.getProperty("user.dir") + "/src/main/resources/productImages";
-
+    public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/productImages";
     @Autowired
     CategoryService categoryService;
-
     @Autowired
     ProductService productService;
-
 
     @GetMapping("/admin")
     public String adminHome() {
@@ -69,7 +66,6 @@ public class AdminController {
         }
     }
 
-    //product Section
     @GetMapping("/admin/products")
     public String products(Model model) {
         model.addAttribute("products", productService.getAllProduct());
@@ -85,8 +81,8 @@ public class AdminController {
 
     @PostMapping("/admin/products/add")
     public String productAddPost(@ModelAttribute("productDTO") ProductDTO productDTO,
-                                 @RequestParam("productImage")MultipartFile file,
-                                 @RequestParam("imgName") String imgName) throws IOException{
+                                 @RequestParam("productImage") MultipartFile file,
+                                 @RequestParam("imgName") String imgName) throws IOException {
 
         Product product = new Product();
         product.setId(productDTO.getId());
@@ -96,10 +92,10 @@ public class AdminController {
         product.setWeight(productDTO.getWeight());
         product.setDescription(productDTO.getDescription());
 
-        String imageUUID;  //////////
-        if(!file.isEmpty()){
+        String imageUUID;
+        if (!file.isEmpty()) {
             imageUUID = file.getOriginalFilename();
-            Path fileNamePath  = Paths.get(uploadDir, imageUUID);
+            Path fileNamePath = Paths.get(uploadDir, imageUUID);
             Files.write(fileNamePath, file.getBytes());
         } else {
             imageUUID = imgName;
@@ -117,7 +113,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/product/update/{id}")
-    public String updateProductGet(@PathVariable int id, Model model){
+    public String updateProductGet(@PathVariable int id, Model model) {
         Product product = productService.getProductById(id).get();
         ProductDTO productDTO = new ProductDTO();
         productDTO.setId(product.getId());
@@ -134,9 +130,7 @@ public class AdminController {
         return "productsAdd";
 
     }
-    }
-
-
+}
 
 
 

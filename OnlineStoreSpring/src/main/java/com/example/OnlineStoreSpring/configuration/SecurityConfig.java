@@ -22,7 +22,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Autowired
     CustomUserDetailService customUserDetailService;
 
-    ////?!!!!!@????????????????!!!!!!!!!!!!!!!))))))))____________!!!!!!!!!!!!!!! PART14
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/", "/shop/**", "/register").permitAll()
@@ -34,7 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .loginPage("/login")
                 .permitAll()
                 .failureUrl("/login?error = true")
- //               .defaultSuccessUrl("/")
                 .defaultSuccessUrl("/",true)
                 .usernameParameter("email")
                 .passwordParameter("password")
@@ -55,13 +53,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .disable();
 
         http.headers().frameOptions().disable();
-
-
     }
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
-
     }
 
     @Override
@@ -70,36 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/static/**", "/images/**",
-                "/productImages/**","/css/**", "/js/**");
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers("/resources/**", "/static/**", "/resources/images/**",
+                "/resources/productImages/**","/css/**", "/js/**");
     }
-
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/resources/**", "/static/**", "/images/**",
-//                "/productimages/**", "/css/**", "/js/**");
-//    }
-
-    //!!!!!!!!!!!!!!!!!!//////////////-__________________________________________
-
-
-//    @Bean
-//    public SessionLocaleResolver localResolver(){
-//        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-//        localeResolver.setDefaultLocale(Locale.US);
-//        return localeResolver;
-//    }
-
-//    @Bean
-//    public FilterRegistrationBean encodingFilterRegistrationBean() {
-//        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-//        registrationBean.setFilter(new CharacterEncodingFilter());
-//        Map<String, String> params = new HashMap<>();
-//        params.put("encoding", "UTF-8");
-//        params.put("forceEncoding", "true");
-//        registrationBean.setInitParameters(params);
-//        registrationBean.addUrlPatterns("/");
-//        return registrationBean;
-//    }
 }

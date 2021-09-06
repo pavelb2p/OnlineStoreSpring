@@ -21,6 +21,5 @@ public class CustomUserDetailService implements UserDetailsService {
         Optional<User> user = userRepository.findUserByEmail(email);
         user.orElseThrow(() -> new UsernameNotFoundException("User didn't get email yet"));
         return user.map(CustomUsersDetail::new).get();
-
     }
 }
