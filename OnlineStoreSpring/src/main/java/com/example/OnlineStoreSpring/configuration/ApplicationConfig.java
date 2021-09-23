@@ -26,7 +26,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
     }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/productImages").addResourceLocations("/resources/productImages");
+        registry.addResourceHandler("/productImages").addResourceLocations("/productImages");
     }
 
     @Bean

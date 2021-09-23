@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.math.BigDecimal;
+
 
 @Controller
 public class CartController {
@@ -23,7 +25,8 @@ public class CartController {
     @GetMapping("/cart")
     public String cartGet(Model model){
         model.addAttribute("cartCount", GlobalData.cart.size());
-        model.addAttribute("total", GlobalData.cart.stream().mapToDouble(Product::getPrice).sum());
+        model.addAttribute("total", GlobalData.cart.stream().map(Product::getPrice).reduce(BigDecimal::add).get());
+                //mapToDouble(Product::getPrice).sum());
         model.addAttribute("cart", GlobalData.cart);
         return "cart";
     }
@@ -35,7 +38,7 @@ public class CartController {
     }
     @GetMapping("/checkout")
     public String checkout(Model model){
-        model.addAttribute("total", GlobalData.cart.stream().mapToDouble(Product::getPrice).sum());
+        model.addAttribute("total", GlobalData.cart.stream().map(Product::getPrice).reduce(BigDecimal::add).get());
         return "checkOut";
     }
 
